@@ -42,6 +42,7 @@ class SpiderMain(object):
                     os.mkdir(album_title)
                 except Exception as e:
                     print('exception:', e)
+                    continue
                 for index in range(1, last_pic_index + 1):
                     # pic_page_url
                     # http://www.mzitu.com/91956/65
