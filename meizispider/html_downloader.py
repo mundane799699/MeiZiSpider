@@ -5,8 +5,8 @@
 # @file    : html_downloader.py
 # @Software: PyCharm Community Edition
 
-from urllib import request
 import requests
+
 
 
 class HtmlDownloader(object):

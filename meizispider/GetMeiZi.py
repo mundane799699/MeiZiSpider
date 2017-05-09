@@ -51,13 +51,13 @@ class SpiderMain(object):
                         print('pic_page_html_content is None')
                         continue
                     pic_url = self.parser.get_pic_url(pic_page_html_content)
-                    img = self.downloader.download_pic(url)
+                    filename = pic_url.split('/')[-1]
+                    img = requests.get(pic_url)
+                    name = str(album_title + '/' + filename)
                     if img is None:
                         continue
-                    name = pic_url.split('/')[-1]
-                    filename = str(album_title + "/" + name)
                     print('开始下载', pic_url)
-                    with open(filename, "wb") as f:
+                    with open(name, 'wb') as f:
                         f.write(img.content)
 
 
