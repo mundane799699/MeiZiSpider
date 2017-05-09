@@ -52,7 +52,7 @@ class SpiderMain(object):
                         continue
                     pic_url = self.parser.get_pic_url(pic_page_html_content)
                     filename = pic_url.split('/')[-1]
-                    img = requests.get(pic_url)
+                    img = self.downloader.download_pic(pic_url)
                     name = str(album_title + '/' + filename)
                     if img is None:
                         continue
