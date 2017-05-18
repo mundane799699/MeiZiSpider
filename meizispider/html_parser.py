@@ -25,12 +25,17 @@ class HtmlParser(object):
         album_urls = []
         li_list = soup.find_all('li')
         for li in li_list:
-            a = li.find('a', href=re.compile(r'http://www.mzitu.com/\d+'))
-            if a is not None:
-                # print(a.find('img').attrs['alt'])  #  这个方法和下面那个是一样的
-                # print(a.find('img')['alt'])
-                data = {'title': a.find('img')['alt'], 'album_url': a['href']}  # 相册名称和链接地址
-                album_urls.append(data)
+            try:
+                # todo 这里貌似有问题
+                a = li.find('a', href=re.compile(r'http://www'))
+                if a is not None:
+                    # print(a.find('img').attrs['alt'])  #  这个方法和下面那个是一样的
+                    # print(a.find('img')['alt'])
+                    print(a)
+                    data = {'title': a.find('img')['alt'], 'album_url': a['href']}  # 相册名称和链接地址
+                    album_urls.append(data)
+            except Exception as e:
+                print('exception: html_parser_38', e)
         return album_urls
 
     # 获取每一页的链接地址

@@ -5,10 +5,10 @@
 # @file    : GetMeiZi.py
 # @Software: PyCharm Community Edition
 
+import os
+
 from meizispider import html_downloader
 from meizispider import html_parser
-import os
-import requests
 
 
 class SpiderMain(object):
